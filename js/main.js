@@ -5,7 +5,6 @@ function playerTurn(id) {
     if (!gameOn) { return; }
     if (computerMoves.includes(Number(id)) || playerMoves.includes(id)) { return; }
     playerMoves.push(id);
-    console.log('playerMoves :>> ', playerMoves);
     drawScore(0, id);
     checkIfThereIsAWinner();
     turns++;
@@ -13,7 +12,6 @@ function playerTurn(id) {
     computerTurn();
 
 }
-
 function drawScore(player, id) {
     let box = document.getElementById(id);
     //person choose this box
@@ -28,9 +26,8 @@ function drawScore(player, id) {
     }
     //remove hover from this box
     box.classList.remove('hoverable');
-    box.style.fontSize = "4rem";
+    box.style.fontSize = "3.5rem";
 }
-
 function checkIfThereIsAWinner() {
     let boxes = [];
     //get value from all the boxes
@@ -153,11 +150,9 @@ function computerTurn() {
             availableMoves.push(i);
         }
     }
-    console.log('availableMoves :>> ', availableMoves);
     let randomId = availableMoves[Math.floor(Math.random() * availableMoves.length)];
     computerMoves.push(randomId);
     drawScore(1, randomId);
-    console.log('randomId :>> ', randomId);
     checkIfThereIsAWinner();
     turns++;
     if (turns == 9) { gameOn = false; console.log('draw'); }
@@ -170,3 +165,9 @@ function heightWinnerBoxes(id1, id2, id3) {
     box2.style.backgroundColor = "#c0cd04";
     box3.style.backgroundColor = "#c0cd04";
 }
+
+
+
+
+
+
